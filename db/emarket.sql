@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 08, 2015 at 10:58 AM
+-- Generation Time: Sep 10, 2015 at 02:24 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `album_barang` (
   `id` int(11) NOT NULL,
+  `kode_barang` varchar(255) NOT NULL,
   `url1` varchar(255) DEFAULT NULL,
   `url2` varchar(255) DEFAULT NULL,
   `url3` varchar(255) DEFAULT NULL,
@@ -56,6 +57,7 @@ CREATE TABLE IF NOT EXISTS `master_barang` (
   `id` int(255) NOT NULL,
   `kode_barang` varchar(255) NOT NULL,
   `nama_barang` varchar(255) DEFAULT NULL,
+  `harga_barang` varchar(255) NOT NULL,
   `dekskripsi_barang` varchar(255) DEFAULT NULL,
   `id_kategori` int(255) DEFAULT NULL,
   `id_toko` int(255) DEFAULT NULL,
@@ -128,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `order` (
 CREATE TABLE IF NOT EXISTS `order_barang` (
   `id` int(11) NOT NULL,
   `id_order` int(255) DEFAULT NULL,
-  `id_barang` int(255) DEFAULT NULL,
+  `id_barang` varchar(255) DEFAULT NULL,
   `kuantitas` int(255) DEFAULT NULL,
   `total` varchar(255) DEFAULT NULL,
   `tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -142,7 +144,7 @@ CREATE TABLE IF NOT EXISTS `order_barang` (
 
 CREATE TABLE IF NOT EXISTS `status_barang` (
   `id` int(11) NOT NULL,
-  `id_barang` int(255) DEFAULT NULL,
+  `id_barang` varchar(255) DEFAULT NULL,
   `stok` varchar(255) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
   `tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
